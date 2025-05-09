@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Ask AI";
+    var answer = TempData["AiAnswer"] as string;
+}
+<link rel="stylesheet" href="~/css/style.css?v=@DateTime.Now.Ticks" />
+<ew-template />
+
+<section class="ai-container anim">
+    <form method="post" asp-controller="CustomData" asp-action="AskAI" class="ai-form">
+        <label for="prompt">Your question</label>
+        <input type="text" id="prompt" name="prompt" placeholder="e.g. What's the best bean for cold brew?" required />
+        <div class="form-group m-t-4">
+            <button type="submit">Ask AI</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(answer))
+    {
+        <div class="ai-response anim">
+            <h4 class="size-xs m-b-2">AI Answer:</h4>
+            <p>@answer</p>
+        </div>
+    }
+</section>

@@ -1,0 +1,15 @@
+﻿@using Easyweb.Site.Models
+@model List<ProductViewModel>
+<link rel="stylesheet" href="~/css/style.css?v=@DateTime.Now.Ticks" />
+<ew-template />  
+
+<div class="product-list">
+        @foreach (var product in Model)
+        {
+            <div class="product-card">
+                <h3>@product.Name</h3>
+                <p class="description">@product.Description</p>
+                <p class="price">@product.Price.ToString("C")</p>
+            </div>
+        }
+</div>
